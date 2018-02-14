@@ -11,12 +11,29 @@ public class Main {
         man.setHeight(190);
         man.setAge(36);
 
-        woman.setWeight(80);
-        woman.setHeight(190);
-        woman.setAge(36);
+        woman.setWeight(61);
+        woman.setHeight(168);
+        woman.setAge(44);
 
-        man.BMR();
-        woman.BMR();
+        System.out.println("\n Man's Basal Metabolic Rate is: " + man.BMR());
+        System.out.println("\n Woman's Basal Metabolic Rate is: " + woman.BMR());
+
+        MealFactory mealFactory = new MealFactory();
+
+        //get an object of Breakfast and call its eat method.
+        Meal meal_1 = mealFactory.getMeal("BREAKFAST");
+
+        //call eat method of Breakfast
+        meal_1.eat();
+
+        Meal meal_2 = mealFactory.getMeal("DINNER");
+        meal_2.eat();
+
+        Meal meal_3 = mealFactory.getMeal("SNACK");
+        meal_3.eat();
+
+        Meal meal_4 = mealFactory.getMeal("SUPPER");
+        meal_4.eat();
 
     }
 }
