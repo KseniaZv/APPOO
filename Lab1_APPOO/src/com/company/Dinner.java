@@ -1,7 +1,8 @@
 package com.company;
 
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
+
+import static com.company.GetFoodNames.getFoodNames;
 
 public class Dinner implements Meal {
 
@@ -19,10 +20,12 @@ public class Dinner implements Meal {
         foodForDinner.put("macaroni", 336);
         foodForDinner.put("beef", 154);
         foodForDinner.put("chicken", 185);
-        foodForDinner.put("vegetable salat", 68);
+        foodForDinner.put("vegetable salad", 68);
         foodForDinner.put("fish", 87);
         foodForDinner.put("cereal", 330);
         foodForDinner.put("orange", 41);
+
+        getFoodNames(foodForDinner, caloriesForDinner);
 
     }
 }

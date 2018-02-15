@@ -1,7 +1,8 @@
 package com.company;
 
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
+
+import static com.company.GetFoodNames.getFoodNames;
 
 public class Breakfast implements Meal {
 
@@ -12,7 +13,7 @@ public class Breakfast implements Meal {
         caloriesForBreakfast = (int) (BMR*0.25);
         System.out.println("caloriesForBreakfast: " +  caloriesForBreakfast);
 
-        Map foodForBreakfast = new HashMap();
+        Map<String, Integer> foodForBreakfast = new HashMap();
 
         foodForBreakfast.put("oatmeal", 356);
         foodForBreakfast.put("egg",150);
@@ -22,6 +23,6 @@ public class Breakfast implements Meal {
         foodForBreakfast.put("sandwich", 340);
         foodForBreakfast.put("milk", 62);
 
+        getFoodNames(foodForBreakfast, caloriesForBreakfast);
     }
-
 }
