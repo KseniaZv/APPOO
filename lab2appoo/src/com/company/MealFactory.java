@@ -3,7 +3,7 @@ package com.company;
 public class MealFactory {
 
     //use getMeal method to get object of type meal
-    public Meal getMeal(String mealType){
+    public IMeal getMeal(String mealType){
         if(mealType == null){
             return null;
         }

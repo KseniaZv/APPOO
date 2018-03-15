@@ -1,8 +1,22 @@
 package com.company;
 
+import static com.company.GetFoodNames.getFoodNames;
+
 public class Main {
 
     public static void main(String[] args) {
+
+        FoodForBreakfast foodForBreakfast = new FoodForBreakfast();
+        foodForBreakfast.print(foodForBreakfast.productsSelection());
+
+        FoodForDinner foodForDinner = new FoodForDinner();
+        foodForDinner.print(foodForDinner.productsSelection());
+
+        FoodForSnack foodForSnack = new FoodForSnack();
+        foodForSnack.print(foodForSnack.productsSelection());
+
+        FoodForSupper foodForSupper = new FoodForSupper();
+        foodForSupper.print(foodForSupper.productsSelection());
 
         Man man = new Man();
 
@@ -10,26 +24,33 @@ public class Main {
         man.setHeight(180);
         man.setAge(20);
 
-        System.out.println("Man's Basal Metabolic Rate is: " + man.BMR() + "\n");
+        System.out.println("Man's Basal Metabolic Rate is: " + man.basalMetabolicRateCalculator() + "\n");
 
         System.out.println("Menu for a Man: \n" );
 
-        MealFactory mealFactoryM = new MealFactory();
+        MealFactory mealFactoryForMan = new MealFactory();
 
-        //get an object of Breakfast and call its eat method.
-        Meal meal_1m = mealFactoryM.getMeal("BREAKFAST");
+        //get an object of Breakfast and call its caloriesCalculation method.
+        IMeal breakfastForMan = mealFactoryForMan.getMeal("BREAKFAST");
+        //call caloriesCalculation method of Breakfast
+        breakfastForMan.printCalories(man.basalMetabolicRateCalculator());
+        getFoodNames(foodForBreakfast.productsSelection(), breakfastForMan.caloriesCalculation(man.basalMetabolicRateCalculator()));
 
-        //call eat method of Breakfast
-        meal_1m.eat(man.BMR());
 
-        Meal meal_2m = mealFactoryM.getMeal("DINNER");
-        meal_2m.eat(man.BMR());
+        IMeal dinnerForMan = mealFactoryForMan.getMeal("DINNER");
+        dinnerForMan.printCalories(man.basalMetabolicRateCalculator());
+        getFoodNames(foodForDinner.productsSelection(), dinnerForMan.caloriesCalculation(man.basalMetabolicRateCalculator()));
 
-        Meal meal_3m = mealFactoryM.getMeal("SNACK");
-        meal_3m.eat(man.BMR());
+        IMeal snackForMan = mealFactoryForMan.getMeal("SNACK");
+        snackForMan.printCalories(man.basalMetabolicRateCalculator());
+        getFoodNames(foodForSnack.productsSelection(), snackForMan.caloriesCalculation(man.basalMetabolicRateCalculator()));
 
-        Meal meal_4m = mealFactoryM.getMeal("SUPPER");
-        meal_4m.eat(man.BMR());
+        IMeal supperForMan = mealFactoryForMan.getMeal("SUPPER");
+        supperForMan.printCalories(man.basalMetabolicRateCalculator());
+        getFoodNames(foodForSupper.productsSelection(), supperForMan.caloriesCalculation(man.basalMetabolicRateCalculator()));
+
+        AdviceForMan adviceForMan = new AdviceForMan();
+        adviceForMan.print(adviceForMan.getAdvice());
 
         System.out.println();
         System.out.println();
@@ -40,23 +61,31 @@ public class Main {
         woman.setHeight(175);
         woman.setAge(21);
 
-        System.out.println("Woman's Basal Metabolic Rate is: " + woman.BMR() + "\n" );
+        System.out.println("Woman's Basal Metabolic Rate is: " + woman.basalMetabolicRateCalculator() + "\n" );
 
         System.out.println("Menu for a Woman: \n" );
 
-        MealFactory mealFactoryW = new MealFactory();
+        MealFactory mealFactoryForWoman = new MealFactory();
 
-        Meal meal_1w = mealFactoryW.getMeal("BREAKFAST");
-        meal_1w.eat(woman.BMR());
+        IMeal breakfastForWoman = mealFactoryForWoman.getMeal("BREAKFAST");
+        breakfastForWoman.printCalories(woman.basalMetabolicRateCalculator());
+        getFoodNames(foodForBreakfast.productsSelection(), breakfastForWoman.caloriesCalculation(woman.basalMetabolicRateCalculator()));
 
-        Meal meal_2w = mealFactoryW.getMeal("DINNER");
-        meal_2w.eat(woman.BMR());
 
-        Meal meal_3w = mealFactoryW.getMeal("SNACK");
-        meal_3w.eat(woman.BMR());
+        IMeal dinnerForWoman = mealFactoryForWoman.getMeal("DINNER");
+        dinnerForWoman.printCalories(woman.basalMetabolicRateCalculator());
+        getFoodNames(foodForDinner.productsSelection(), dinnerForWoman.caloriesCalculation(woman.basalMetabolicRateCalculator()));
 
-        Meal meal_4w = mealFactoryW.getMeal("SUPPER");
-        meal_4w.eat(woman.BMR());
+        IMeal snackForWoman = mealFactoryForWoman.getMeal("SNACK");
+        snackForWoman.printCalories(woman.basalMetabolicRateCalculator());
+        getFoodNames(foodForSnack.productsSelection(), snackForWoman.caloriesCalculation(woman.basalMetabolicRateCalculator()));
+
+        IMeal supperForWoman = mealFactoryForWoman.getMeal("SUPPER");
+        supperForWoman.printCalories(woman.basalMetabolicRateCalculator());
+        getFoodNames(foodForSupper.productsSelection(), supperForWoman.caloriesCalculation(woman.basalMetabolicRateCalculator()));
+
+        AdviceForWoman adviceForWoman = new AdviceForWoman();
+        adviceForWoman.print(adviceForWoman.getAdvice());
 
     }
 }
