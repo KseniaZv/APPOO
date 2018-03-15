@@ -1,31 +1,18 @@
 package com.company;
 
-import java.util.*;
-
-import static com.company.GetFoodNames.getFoodNames;
-
-public class Dinner implements Meal {
+public class Dinner implements IMeal {
 
     @Override
-    public void eat(int BMR) {
+    public int caloriesCalculation(int basalMetabolicRate) {
 
-        int caloriesForDinner;
-        caloriesForDinner = (int) (BMR*0.35);
-        System.out.println("caloriesForDinner: " +  caloriesForDinner);
+        return (int) (basalMetabolicRate*0.35);
 
-        Map foodForDinner = new HashMap();
+    }
 
-        foodForDinner.put("soup", 25);
-        foodForDinner.put("potatoes", 89);
-        foodForDinner.put("macaroni", 336);
-        foodForDinner.put("beef", 154);
-        foodForDinner.put("chicken", 185);
-        foodForDinner.put("vegetable salad", 68);
-        foodForDinner.put("fish", 87);
-        foodForDinner.put("cereal", 330);
-        foodForDinner.put("orange", 41);
+    @Override
+    public void printCalories(int basalMetabolicRate) {
 
-        getFoodNames(foodForDinner, caloriesForDinner);
+        System.out.println("caloriesForDinner: " +  caloriesCalculation(basalMetabolicRate));
 
     }
 }

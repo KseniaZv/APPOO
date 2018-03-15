@@ -5,8 +5,6 @@ public abstract class Human {
     private int height;
     private int age;
 
-    public abstract int BMR();
-
     public int getWeight() {
         return weight;
     }
