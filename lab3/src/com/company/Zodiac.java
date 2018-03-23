@@ -1,7 +1,8 @@
 package com.company;
 
-class Zodiac implements IPrintable {
-    
+class Zodiac implements IZodiac, IPrintable {
+
+    @Override
     public String defineZodiac(int day, int month) {
 
         if ((month == 12 && day >= 22 && day <= 31) || (month ==  1 && day >= 1 && day <= 19))

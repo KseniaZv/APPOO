@@ -4,7 +4,7 @@ import java.util.Random;
 
 class Horoscope {
 
-    Zodiac zodiac = new Zodiac();
+    private IZodiac zodiac = new Zodiac();
 
     String defineHoroscope() {
 
